@@ -3,7 +3,7 @@
  This code is <b>NOT</b> intended for production use but instead as a starting point/reference implenentation of the Azure OpenAI (AOAI) Batch API. The code here is provided <b>AS IS</b>, you assume all responsibility (e.g., charges) from running this code. Testing in your environment should be done before running large use cases. Lastly, this is a work in progress and will be updated frequently. Please check back regularly for updates. 
  <h1>Background & Overview</h1>
  This accelerator is designed to help users to quickly start using the Azure OpenAI Batch API. An overview of how the accelerator works is shown below:
- <br/>![Overview](media/batch_accel_overview.png)<br/>
+ ![Overview](./media/batch_accel_overview.png)
  Key features of the accelerator are:
  1. Automated Batch Job Submission and Creation
  2. Multi-threaded Async Processing to Reduce Overall Processing Time
