@@ -4,3 +4,4 @@ tiktoken
 requests
 token-count
 asyncio
+aiohttp

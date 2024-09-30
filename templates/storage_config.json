@@ -1,0 +1,11 @@
+{
+    "storage_account_name": "<Azure Data Lake Storage Account Name>",
+    "storage_account_key": "<Azure Data Lake Storage Account Key>",
+    "input_filesystem_system_name": "<Input Filesystem/Container System Name>",
+    "processed_filesystem_system_name": "<Processed Filesystem/Container System Name>",
+    "error_filesystem_system_name": "<Error Filesystem/Container System Name>",
+    "input_directory": "/",
+    "output_directory": "/",
+    "error_directory": "/"
+    
+}

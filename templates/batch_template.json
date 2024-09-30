@@ -1,0 +1,18 @@
+{
+    "custom_id":"<UID>",
+    "method":"POST",
+    "url":"/chat/completions",
+    "body":{
+        "model":"<Deployment Name>",
+        "messages":[
+            {
+                "role":"system",
+                "content":"<System Prompt>"
+            },
+            {
+                "role":"user",
+                "content":"<User Prompt>"
+            }
+        ]
+    }
+}
