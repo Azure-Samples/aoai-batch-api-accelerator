@@ -1,0 +1,8 @@
+{
+    "aoai_key": "<Azure OpenAI key>",
+    "aoai_api_version": "2024-07-01-preview",
+    "aoai_endpoint": "<Azure OpenAI endpoint>",
+    "aoai_deployment_name": "<Azure OpenAI deployment name>",
+    "batch_job_endpoint": "/chat/completions",
+    "completion_window": "24h"
+}

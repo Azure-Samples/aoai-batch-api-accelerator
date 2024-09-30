@@ -1,6 +1,26 @@
 <h1>Azure OpenAI Batch Accelerator</h1>
 <h2>Disclaimer:</h2>This is a reference implementation of the Azure OpenAI Batch API designed to be extended for different use cases.<br/>
  This code is <b>NOT</b> intended for production use but instead as a starting point/reference implenentation of the Azure OpenAI (AOAI) Batch API. The code here is provided <b>AS IS</b>, you assume all responsibility (e.g., charges) from running this code. Testing in your environment should be done before running large use cases. Lastly, this is a work in progress and will be updated frequently. Please check back regularly for updates. 
+ <h1>Background & Overview</h1>
+ This accelerator is designed to help users to quickly start using the Azure OpenAI Batch API. An overview of how the accelerator works is shown below:
+ 
+ ![Overview](media/batch_accel_overview.png)
+ 
+ Key features of the accelerator are:
+ <br/>
+ 
+ 1. Automated Batch Job Submission and Creation
+ 2. Multi-threaded Async Processing to Reduce Overall Processing Time
+ 3. Automated Error Tracking
+ 4. Multi-directory Hierarchy Support
+ 5. Configurable Micro-batch support
+ 6. Automated Post-job Cleanup
+    
+ <br/>
+ For more details, including a demo video of the accelerator and a detailed data flow diagram, please see the presentation located at: 
+ 
+ ![Details](media/overview.pdf)
+ 
 <h1>Installation & Setup</h1>
 <i>Environment:</i><br/><br/>
 
@@ -16,6 +36,7 @@
 4. requests
 5. token-count
 6. asyncio
+7. aiohttp
 
 In addition to this, it is recommended to install these dependencies in a virtual environment to avoid conflicts (e.g., .venv)
 <h2>Connecting AOAI to Azure Storage</h2>
@@ -48,9 +69,6 @@ based on the requirements/file sizes being sent to the batch service.
 3. <b>Metadata</b>: The output creates a metadata file for each input file which contains mapping information which may be useful for automated processing of results.
 4. <b>Cleanup</b>: After processing is complete, the code will automatically process and clean up all files in the input directory, locally downloaded files, and all uploaded files to the AOAI Batch Service.
 
-<h1>Authors & Contact</h1>
-Please send any questions/comments to:</br>
-
-<b>Amit Mukherjee</b> amimukherjee@microsoft.com</br>
-<b>DJ Dean</b> dade@microsoft.com</br>
+<h1>Issues</h1>
+If you have any problems using this code or would like to see a new feature added, please create a new issue using the 'Issues' tab.
 
