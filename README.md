@@ -16,6 +16,7 @@
 4. requests
 5. token-count
 6. asyncio
+7. aiohttp
 
 In addition to this, it is recommended to install these dependencies in a virtual environment to avoid conflicts (e.g., .venv)
 <h2>Connecting AOAI to Azure Storage</h2>
