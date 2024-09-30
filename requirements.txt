@@ -1,0 +1,6 @@
+azure-storage-file-datalake
+openai
+tiktoken
+requests
+token-count
+asyncio
