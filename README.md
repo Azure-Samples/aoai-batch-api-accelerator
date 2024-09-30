@@ -17,7 +17,9 @@
  6. Automated Post-job Cleanup
     
  <br/>
- For more details, including a demo video of the accelerator and a detailed data flow diagram, please see the presentation located at: (media/overview.ppt)
+ For more details, including a demo video of the accelerator and a detailed data flow diagram, please see the presentation located at: 
+ 
+ ![Details](media/overview.pdf)
  
 <h1>Installation & Setup</h1>
 <i>Environment:</i><br/><br/>
