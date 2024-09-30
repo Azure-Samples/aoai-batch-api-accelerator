@@ -5,13 +5,14 @@
  This accelerator is designed to help users to quickly start using the Azure OpenAI Batch API. An overview of how the accelerator works is shown below:
  ![Overview](media/batch_accel_overview.png)
  Key features of the accelerator are:
+ <br/><br/>
  1. Automated Batch Job Submission and Creation
  2. Multi-threaded Async Processing to Reduce Overall Processing Time
  3. Automated Error Tracking
  4. Multi-directory Hierarchy Support
  5. Configurable Micro-batch support
  6. Automated Post-job Cleanup
-
+ <br/><br/>
  For more details, including a demo video of the accelerator and a detailed data flow diagram, please see the presentation located at: (media/overview.ppt)
  
 <h1>Installation & Setup</h1>
