@@ -1,4 +1,4 @@
-<h1>Azure OpenAI Batch Accelerator</h1>
+<h1>Unofficial Azure OpenAI Batch Accelerator</h1>
 <h2>Disclaimer:</h2>This is a reference implementation of the Azure OpenAI Batch API designed to be extended for different use cases.<br/>
  This code is <b>NOT</b> intended for production use but instead as a starting point/reference implenentation of the Azure OpenAI (AOAI) Batch API. The code here is provided <b>AS IS</b>, you assume all responsibility (e.g., charges) from running this code. Testing in your environment should be done before running large use cases. Lastly, this is a work in progress and will be updated frequently. Please check back regularly for updates. 
  <h1>Background & Overview</h1>
@@ -17,9 +17,7 @@
  6. Automated Post-job Cleanup
     
  <br/>
- For more details, including a demo video of the accelerator and a detailed data flow diagram, please see the presentation located at: 
- 
- ![Details](media/overview.pdf)
+ For more details, including a detailed data flow diagram, please see <a href="media/overview.pdf" type="application/pdf">this</a> overview.
  
 <h1>Installation & Setup</h1>
 <i>Environment:</i><br/><br/>
