@@ -135,7 +135,7 @@ class AzureBatch:
             error_index = 1
             for error in errors:
                 error_file_content["Error "+str(error_index)] = error.message
-            error_file_content_string = error_file_content
+            error_file_content_string = json.dumps(error_file_content)
         if batch_data["output_file_id"] is not None:
             output_file_content = self.aoai_client.aoai_client.files.content(batch_data["output_file_id"])  
             output_file_content_string = str(output_file_content.text)
