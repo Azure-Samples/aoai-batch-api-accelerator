@@ -14,7 +14,7 @@ def signal_handler(sig, frame):
 
 def main():
     signal.signal(signal.SIGINT, signal_handler)
-    APP_CONFIG = os.environ.get('APP_CONFIG', r"<Insert path to app config file>")
+    APP_CONFIG = os.environ.get('APP_CONFIG', r"C:\Users\dade\Desktop\AOAIBatchWorkingFork\aoai-batch-api-accelerator\config\app_config.json")
     utils = Utils()
     try:
         app_config_data = utils.read_json_data(APP_CONFIG)
