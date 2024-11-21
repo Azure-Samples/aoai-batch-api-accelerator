@@ -14,11 +14,10 @@ def signal_handler(sig, frame):
 
 def main():
     signal.signal(signal.SIGINT, signal_handler)
-    APP_CONFIG = os.environ.get('APP_CONFIG', r"<Insert path to app config file>")
-    utils = Utils()
+    APP_CONFIG = os.environ.get('APP_CONFIG', r"C:\Users\dade\Desktop\AOAIBatchWorkingFork\aoai-batch-api-accelerator\config\app_config.json")
     try:
-        app_config_data = utils.read_json_data(APP_CONFIG)
-        storage_config_data = utils.read_json_data(app_config_data["storage_config"])
+        app_config_data = Utils.read_json_data(APP_CONFIG)
+        storage_config_data = Utils.read_json_data(app_config_data["storage_config"])
         storage_account_name = storage_config_data["storage_account_name"]
         storage_account_key = storage_config_data["storage_account_key"]
         input_filesystem_system_name =  storage_config_data["input_filesystem_system_name"]
@@ -27,7 +26,7 @@ def main():
         input_directory = storage_config_data["input_directory"]
         output_directory = storage_config_data["output_directory"]
         error_directory = storage_config_data["error_directory"]
-        aoai_config_data = utils.read_json_data(app_config_data["AOAI_config"])
+        aoai_config_data = Utils.read_json_data(app_config_data["AOAI_config"])
         BATCH_PATH = "https://"+storage_account_name+".blob.core.windows.net/"+input_filesystem_system_name+"/"
         batch_size = int(app_config_data["batch_size"])
         count_tokens = int(app_config_data["count_tokens"])

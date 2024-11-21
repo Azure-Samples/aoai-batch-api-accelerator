@@ -17,12 +17,13 @@ class Utils:
         file_name_with_extension_split = file_name_with_extension.split(".")
         file_name_only = file_name_with_extension_split[0]
         return file_name_only
-    
-    def read_json_data(self,file_name):
+    @staticmethod
+    def read_json_data(file_name):
         with open(file_name) as json_file:
             data = json.load(json_file)
         return data
-    def get_file_list(self,directory):
+    @staticmethod
+    def get_file_list(directory):
         file_list = []
         for file in os.listdir(directory):
             file_list.append(file)

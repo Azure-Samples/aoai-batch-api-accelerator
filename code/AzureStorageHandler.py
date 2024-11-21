@@ -13,6 +13,7 @@ class StorageHandler:
             self.file_system_client = self.get_file_system_client(file_system_name)
         else:
             self.file_system_client = None
+        self.byte_read_size = 50000
     def get_directories(self,path):
         paths = self.file_system_client.get_paths(path=path)
         return_paths = []
@@ -24,20 +25,48 @@ class StorageHandler:
             return_paths.append(path)
         return return_paths
     def write_content_to_directory(self, file_content, directory_name, output_filename):
-        write_result = False       
-        dir_exists = self.check_directory_exists(directory_name)
-        if(dir_exists):
-            error_directory_client = self.get_directory_client(directory_name)
-        else:
-            error_directory_client = self.create_directory(directory_name)
-        result_file_content_status = self.write_json_to_storage(output_filename,file_content,error_directory_client)
+        write_result = False  
+        destination_directory_client = self.get_or_create_directory_client(directory_name)     
+        result_file_content_status = self.write_json_to_storage(output_filename,file_content,destination_directory_client)
         if result_file_content_status:
             write_result = True
             print(f"File {output_filename} written to storage directory.")
         else:
-            print(f"Error writing file {output_filename} to error directory.")
+            print(f"Error writing file {output_filename} to directory.")
         return write_result
-
+    def get_or_create_directory_client(self,directory_name):
+        dir_exists = self.check_directory_exists(directory_name)
+        if(dir_exists):
+            directory_client = self.get_directory_client(directory_name)
+        else:
+            directory_client = self.create_directory(directory_name)
+        return directory_client
+    def write_bytes_to_storage_chunked(self, source_filename,source_directory_client, 
+                                       destination_filename,destination_directory_client):
+        try:
+            output_file_stream = destination_directory_client.get_file_client(destination_filename)
+            file_content_stream = self.get_file_stream(source_filename,source_directory_client)
+            byte_stream = file_content_stream.read(self.byte_read_size)
+            offset = 0
+            while len(byte_stream) > 0:
+                size = len(byte_stream)
+                if not output_file_stream.exists():
+                    output_file_stream.upload_data(data=byte_stream, overwrite=True)
+                else:
+                    output_file_stream.append_data(data=byte_stream, offset=offset, length=size, flush=True)
+                offset += size
+                byte_stream = file_content_stream.read(self.byte_read_size)
+        except Exception as e:
+            print(f"Error writing file {source_filename} to destination directory: {e}")
+            
+    def copy_file_to_directory(self, source_filename, source_directory, destination_filesystem_client, 
+                               destination_directory, destination_filename ):
+        source_directory_client = self.get_directory_client(source_directory)
+        destination_directory_client = destination_filesystem_client.get_or_create_directory_client(destination_directory)
+        self.write_bytes_to_storage_chunked(source_filename,source_directory_client,destination_filename, 
+                                            destination_directory_client)
+        
+        return True
     def write_json_to_storage(self,output_name,output_data,directory_client):
         return_code = True
         try:
@@ -73,6 +102,10 @@ class StorageHandler:
             if not path.is_directory:
                 file_list.append(path.name)
         return file_list
+    def get_file_stream(self, file_name,directory_client):
+        file_client = directory_client.get_file_client(file_name)
+        download = file_client.download_file()
+        return download
     def get_file_data(self, file_name,directory_client):
         file_client = directory_client.get_file_client(file_name)
         download = file_client.download_file()
