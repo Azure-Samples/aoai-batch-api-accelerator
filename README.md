@@ -4,7 +4,7 @@
  <h1>Background & Overview</h1>
  This accelerator is designed to help users to quickly start using the Azure OpenAI Batch API. An overview of how the accelerator works is shown below:
  
- ![Overview](media/batch_accel_overview.png)
+ ![Overview](media/batch_accel_overview_new.png)
  
  Key features of the accelerator are:
  <br/>
